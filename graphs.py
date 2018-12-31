@@ -23,13 +23,18 @@ plt.show()
 """
 
 def graphics (randmatrix):
-    
-    f=plt.figure()
+
+    import random
+
+    num_rows, num_columns = randmatrix.shape
+
+    cols = ["r", "w", "blue", "g", "m", "c"]
     sns.set_style("darkgrid", {"axes.facecolor": ".1", "grid.color": ".8"})
     sns.set_context("poster")
 
-    for row in range(0, num_rows):
-        sns.distplot(randmatrix[row,], hist=False, rug = True)
-        plt.title("Frequency of Words")
-        plt.xlabel("Words")
-        plt.ylabel("Frequencies")
+    print(num_rows)
+    sns.distplot(randmatrix[0,], hist=False, color=random.choice(cols))
+    plt.title("Frequency of Words")
+    plt.xlabel("Words")
+    plt.ylabel("Frequencies")
+

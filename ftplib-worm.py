@@ -17,6 +17,8 @@ print("home now")
 
 print(ftp.nlst())
 
+out_file = open("writingdirs.txt", "w")
+
 # =============================================================================
 # 
 # =============================================================================
@@ -42,7 +44,7 @@ def getdirs():
 
 dirs = []
 
-for x in range(0,3):
+for x in range(0,2):
     for y in range(0,10):
         for z in range(0,10):
             newdir = "/pub/docs/books/gutenberg/%s/%s/%s" % (x,y,z)
@@ -73,7 +75,7 @@ with open("writingdirs.txt", "r") as _dirs:
 
 print(_dirs[:10])
 
-for _dir in _dirs:
+for _dir in _dirs[:200]:
     try:
         _dir = _dir.rstrip()
         ftp.cwd(_dir)

@@ -41,19 +41,28 @@ print(len(in_files))
 #                
 # =============================================================================
 
+def name_builder(_text):
+
+    title = re.search(r"Title:(.+)",_text).group(1)
+    author = re.search(r"Author:(.+)",_text).group(1)
+    print(title)
+    print(author)
+    return title,author
+
 for _file in in_files:
+
     if _file.endswith(".txt"):
         text=codecs.open(_file , "r",encoding="utf-8",errors="ignore")
         text=text.read()
-        title = re.search(r"Title:([\.\w ]+)",text).group(1)
-        author = re.search(r"Author:(.+)",text).group(1)
-        print(title)
+        title, author = name_builder(text)
+
         file_name = author + title
         file_name = file_name.lstrip()
         file_name = re.sub("[\. ,\r]+", "-", file_name)
         file_name = re.sub("[\. ,\s\r]+", "-", file_name)
         file_name = file_name + ".txt"
         print(file_name)
+            
         try:
             os.rename(_file ,file_name)
         except:
@@ -82,9 +91,11 @@ for _file in os.listdir():
         index = _file.find("-")
         if _file[:index] in femalenames:
             print("Female! ", _file[:index])
+            os.rename(_file,"./Women/"+_file)
             counter += 1
         elif _file[:index] in malenames:
             counter += 1
+            os.rename(_file,"./Men/"+_file)
             print("Male!", _file[:index])
             
 os.chdir("Women")
