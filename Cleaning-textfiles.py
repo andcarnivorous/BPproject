@@ -19,11 +19,12 @@ for _file in in_files:
         if "Language: English" not in text:
             print(_file)
             in_files.remove(_file)
+
 print(len(in_files))
+
 # =============================================================================
 #                 
 # =============================================================================
-            
 
 for _file in in_files:
     if _file.endswith(".txt"):
@@ -33,11 +34,13 @@ for _file in in_files:
         if "Author:" not in text or "Title:" not in text:
             print(_file)
             in_files.remove(_file)
+
 print(len(in_files))
- 
+
 # =============================================================================
 #                
 # =============================================================================
+
 for _file in in_files:
     if _file.endswith(".txt"):
         text=codecs.open(_file , "r",encoding="utf-8",errors="ignore")
@@ -47,7 +50,8 @@ for _file in in_files:
         print(title)
         file_name = author + title
         file_name = file_name.lstrip()
-        file_name = re.sub("[\. ,]+", "-", file_name)
+        file_name = re.sub("[\. ,\r]+", "-", file_name)
+        file_name = re.sub("[\. ,\s\r]+", "-", file_name)
         file_name = file_name + ".txt"
         print(file_name)
         try:
@@ -83,3 +87,28 @@ for _file in os.listdir():
             counter += 1
             print("Male!", _file[:index])
             
+os.chdir("Women")
+
+for book in os.listdir():
+    try:
+        print(book)
+        
+        file_cleaner(book)
+        count+=1
+    except:
+        continue
+
+os.chdir("..")
+
+os.chdir("Men")
+
+for book in os.listdir():
+    try:
+        print(book)
+        
+        file_cleaner(book)
+        count+=1
+    except:
+        continue
+            
+os.chdir("..")
