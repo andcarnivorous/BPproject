@@ -2,7 +2,6 @@ import matplotlib.pyplot as plt
 import numpy as np
 import seaborn as sns
 
-
 randmatrix = np.random.rand(9,100)
 x_axis = range(len(randmatrix[0,]))
 
@@ -34,16 +33,3 @@ def graphics (randmatrix):
         plt.title("Frequency of Words")
         plt.xlabel("Words")
         plt.ylabel("Frequencies")
-graphics (randmatrix)
-
-
-
-
-# transform into function. argument of function is the matrix (randmatrix)
-
-# myfunction(randmatrix)
-
-# with different sizes of matrices. 
-
-# make labels/titles with matplotlib as before. 
-
