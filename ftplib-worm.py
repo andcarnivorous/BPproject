@@ -17,7 +17,7 @@ print("home now")
 
 print(ftp.nlst())
 
-out_file = open("writingdirs.txt", "w")
+#out_file = open("writingdirs.txt", "w")
 
 # =============================================================================
 # 
@@ -41,7 +41,7 @@ def getdirs():
             list_dirs.append(_dir)
 
     return list_dirs
-
+"""
 dirs = []
 
 for x in range(0,2):
@@ -69,7 +69,7 @@ for _dir in dirs:
 out_file.close()
     
 print("FINEE")
-
+"""
 with open("writingdirs.txt", "r") as _dirs:
     _dirs = _dirs.readlines()
 
@@ -84,4 +84,3 @@ for _dir in _dirs[:200]:
         ftp.cwd(home)
     except:
         continue
-    

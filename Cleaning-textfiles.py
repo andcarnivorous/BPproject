@@ -8,7 +8,7 @@ Created on Fri Dec 28 13:09:38 2018
 import re
 import codecs
 import os
-
+import filecleaner
 
 in_files = os.listdir()
 for _file in in_files:
@@ -104,7 +104,7 @@ for book in os.listdir():
     try:
         print(book)
         
-        file_cleaner(book)
+        filecleaner.file_cleaner(book)
         count+=1
     except:
         continue
@@ -117,7 +117,7 @@ for book in os.listdir():
     try:
         print(book)
         
-        file_cleaner(book)
+        filecleaner.file_cleaner(book)
         count+=1
     except:
         continue
