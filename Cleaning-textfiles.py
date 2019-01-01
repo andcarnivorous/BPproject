@@ -6,7 +6,6 @@ Created on Fri Dec 28 13:09:38 2018
 """
 
 import re
-import codecs
 import os
 import filecleaner
 
@@ -14,7 +13,7 @@ in_files = os.listdir()
 for _file in in_files:
     if _file.endswith(".txt"):
         
-        text=codecs.open(_file , "r",encoding="utf-8",errors="ignore")
+        text= open(_file , "r",encoding="utf-8",errors="ignore")
         text=text.read()
         if "Language: English" not in text:
             print(_file)
