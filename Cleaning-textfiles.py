@@ -9,6 +9,9 @@ import re
 import os
 import filecleaner
 
+os.mkdir("Men")
+os.mkdir("Women")
+
 in_files = os.listdir()
 for _file in in_files:
     if _file.endswith(".txt"):
